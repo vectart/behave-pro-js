@@ -36,6 +36,6 @@
     "zip": "1.1.1"
   },
   "bin": {
-    "behavepro": "./bin/bouwen"
+    "behavepro": "./bin/behave"
   }
 }
