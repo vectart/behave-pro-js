@@ -1,0 +1,48 @@
+#!/usr/bin/env node
+var Behave = require('../lib/behave.js');
+var fs = require('fs');
+var commandLine = require('optimist').argv;
+
+var configFile = defaultedCommandLineOptions('c', 'config', './config.json');
+
+fs.exists(configFile, function (exists) {
+	if (exists) {
+		fs.readFile(configFile, function (err, data) {
+		  if (err) throw new Error(err);
+		  data = JSON.parse(data.toString());
+		  startDownloading(data);
+		});
+	} else {
+	  startDownloading({});
+	}
+});
+
+function startDownloading(behaveConfig) {
+	if (!('output' in behaveConfig)) {
+		behaveConfig.output = defaultedCommandLineOptions('o', 'output', './features/');
+	}
+	if (!('manual' in behaveConfig)) {
+		behaveConfig.manual = defaultedCommandLineOptions('m', 'manual', 1);
+	}
+	if (!('project' in behaveConfig)) {
+		behaveConfig.project = defaultedCommandLineOptions('p', 'project');
+	}
+	new Behave(behaveConfig);
+}
+
+/**
+ * Grab custom values from command line args. If not found use default value.
+ * @param shortName -( c | m | o | p )
+ * @param longName  -( config | manual | output | project )
+ * @param defaultValue
+ * @returns {*}
+ */
+function defaultedCommandLineOptions(shortName, longName, defaultValue) {
+  if (commandLine[longName]) {
+    return commandLine[longName]
+  }
+  if (commandLine[shortName]) {
+    return commandLine[shortName];
+  }
+  return defaultValue;
+}

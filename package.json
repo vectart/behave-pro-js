@@ -1,0 +1,52 @@
+{
+  "name": "behave-pro-js",
+  "version": "0.0.1",
+  "description": "Description",
+  "main": "behave.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/hindsightsoftware/behave-pro-js.git"
+  },
+  "keywords": [
+    "behavepro",
+    "pro",
+    "cucumber",
+    "gherkin",
+    "exporter"
+  ],
+  "author": {
+    "name": "bigattichouse"
+  },
+  "contributors": [
+    {
+      "name": "Charlie Dowler",
+      "email": "charlie.dowler@hindsightsoftware.co.uk",
+      "url": "http://hindsightsoftware.com/"
+    }
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hindsightsoftware/behave-pro-js/issues"
+  },
+  "homepage": "https://behave.pro/",
+  "dependencies": {
+    "cucumber": "0.4.0",
+    "mkdirp": "^0.5.0",
+    "optimist": "0.6.1",
+    "request": "^2.47.0",
+    "unzip": "^0.1.11",
+    "zip": "1.1.1"
+  },
+  "bin": {
+    "behavepro": "./bin/behave"
+  },
+  "readme": "#Behave Pro Node.js exporter\n\n![Behave Pro](http://hindsightsoftware.com/img/solutions/behave-pro/banner.png)\n\nExport Gherkin features from Behave Pro through a simple CLI app.\n\n## Configuration\n```\n{\n\"host\":\"http://example.com\",\n\"projects\":[\n        {\n            \"projectID\": \"[project id from jira/behave pro]\",\n            \"userID\": \"[user id from jira/behave pro]\",\n            \"apiKey\": \"[api key from jira/behave pro]\",\n            \"jira\": \"[associated jira project]\"\n        }\n    ]\n}\n```\n##Usage:\n```\n$ behavepro [-c | --config ./config.json] [-m | --manual true] [-o | --output ./features/] [-p | --project projectId]\n```\n\nSpecial thanks to [@bigattichouse](https://twitter.com/bigattichouse)!",
+  "readmeFilename": "README.md",
+  "_id": "behave-pro-js@0.0.1",
+  "_shasum": "5cb7c6ec8396377559039e1f6d3351aeb93504fd",
+  "_resolved": "git+https://github.com/vectart/behave-pro-js.git#b32f374af0c9ed0520c0b1d6109eaaa2cb1ff410",
+  "_from": "git+https://github.com/vectart/behave-pro-js.git"
+}
